@@ -1,6 +1,6 @@
 const fs = require("fs");
 const getAll = require("../automat/getAll");
-const { episodesDirectory } = require("../configuration");
+const { episodesDirectory, publicDirectory } = require("../configuration");
 
 export const generateEpisodeItem = (ep) => {
   const {
@@ -142,5 +142,5 @@ export const addConfig = (episode) => {
 
   const sitemap = generatePodcastFeed(settings);
 
-  fs.writeFileSync("public/podcast.xml", sitemap);
+  fs.writeFileSync(`${publicDirectory}/podcast.xml`, sitemap);
 })();
