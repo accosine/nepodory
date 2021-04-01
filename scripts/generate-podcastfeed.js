@@ -2,7 +2,7 @@ const fs = require("fs");
 const getAll = require("../automat/getAll");
 const { episodesDirectory } = require("../configuration");
 
-const generateEpisodeItem = (ep) => {
+export const generateEpisodeItem = (ep) => {
   const {
     date,
     title,
@@ -32,7 +32,7 @@ const generateEpisodeItem = (ep) => {
     `;
 };
 
-const generatePodcastFeed = ({
+export const generatePodcastFeed = ({
   protocol,
   domain,
   name,
@@ -83,7 +83,7 @@ const generatePodcastFeed = ({
   </channel>
 </rss>`;
 
-const addConfig = (episode) => {
+export const addConfig = (episode) => {
   const feedMarketingLinkMarkup = process.env.PODCAST_MARKETING_LINKMARKUP;
   const publisher = process.env.PODCAST_PUBLISHER;
   return {

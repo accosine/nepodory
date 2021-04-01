@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generate-podcastfeed generated a piece of xml for the episode in the podcast feed 1`] = `
+"<item>
+      <pubDate>Sun, 21 Feb 2021 19:15:00 GMT</pubDate>
+      <title>I am a title</title>
+      <description>I am some content</description>
+      <content:encoded><![CDATA[<p>I am some content - Just some marketing bla bla</p>]]></content:encoded>
+      <guid>0000000000000000000</guid>
+      <enclosure url=\\"https://example.com\\" type=\\"audio/mpeg\\" length=\\"0000000000\\"/>
+      <itunes:duration xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">00:13:37</itunes:duration>
+      <itunes:author xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">ACME</itunes:author>
+      <itunes:subtitle xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">I am a subtitle</itunes:subtitle>
+    </item>
+    "
+`;
+
+exports[`generate-podcastfeed generated a podcast xml feed 1`] = `
+"<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<rss xmlns:googleplay=\\"http://www.google.com/schemas/play-podcasts/1.0\\" xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" version=\\"2.0\\">
+  <channel>
+    <atom:link href=\\"https://://example.com/podcasts.xml\\" rel=\\"self\\" type=\\"application/rss+xml\\"/>
+    <itunes:owner>
+      <itunes:name>Example</itunes:name>
+      <itunes:email>hello@example.com</itunes:email>
+    </itunes:owner>
+    <title>Example</title>
+    <googleplay:author>ACME</googleplay:author>
+    <description>I am a description</description>
+    <itunes:image href=\\"example.jpg\\"/>
+    <copyright>© 1929 ACME</copyright>
+    <lastBuildDate>Wed, 12 Jun 1929 00:00:00 GMT</lastBuildDate>
+    <pubDate>Wed, 12 Jun 1929 00:00:00 GMT</pubDate>
+    <generator>next.js</generator>
+    <language>en</language>
+    <link>https://://example.com</link>
+    <itunes:keywords xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">podcast</itunes:keywords>
+    <itunes:block>no</itunes:block>
+    <itunes:author>ACME</itunes:author>
+    <itunes:category text=\\"category\\"/>
+    <itunes:category text=\\"category\\">
+      <itunes:category text=\\"subcategory1\\"/>
+    </itunes:category>
+    <itunes:category text=\\"category\\">
+      <itunes:category text=\\"subcategory2\\"/>
+    </itunes:category>
+    <itunes:block>no</itunes:block>
+    <itunes:explicit>yes</itunes:explicit>
+    <ttl>60</ttl>
+    <item>
+      <pubDate>Sun, 21 Feb 2021 19:15:00 GMT</pubDate>
+      <title>I am a title</title>
+      <description>I am some content</description>
+      <content:encoded><![CDATA[<p>I am some content - undefined</p>]]></content:encoded>
+      <guid>0000000000000000000</guid>
+      <enclosure url=\\"https://example.com\\" type=\\"audio/mpeg\\" length=\\"0000000000\\"/>
+      <itunes:duration xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">00:13:37</itunes:duration>
+      <itunes:author xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">undefined</itunes:author>
+      <itunes:subtitle xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">I am a subtitle</itunes:subtitle>
+    </item>
+    
+  </channel>
+</rss>"
+`;

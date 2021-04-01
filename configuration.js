@@ -10,8 +10,12 @@ const generateConfiguration = (() => {
     domain: process.env.DOMAIN,
     timeLocale: process.env.TIME_LOCALE,
     timeFormat: process.env.TIME_FORMAT,
-    episodesDirectory: join(process.cwd(), process.env.FOLDER_EPISODES),
-    pagesDirectory: join(process.cwd(), process.env.FOLDER_PAGES),
+    episodesDirectory: process.env.FOLDER_EPISODES
+      ? join(process.cwd(), process.env.FOLDER_EPISODES)
+      : null,
+    pagesDirectory: process.env.FOLDER_PAGES
+      ? join(process.cwd(), process.env.FOLDER_PAGES)
+      : null,
     primaryColor: "green",
     secondaryColor: "red",
     tertiaryColor: "blue",
@@ -24,7 +28,7 @@ const generateConfiguration = (() => {
     publisher: process.env.PODCAST_PUBLISHER,
     publisherLogo: process.env.PODCAST_PUBLISHER_LOGO,
     posterPortrait: process.env.POSTER_PORTRAIT,
-    hamburger: process.env.HAMBURGER.split(" "),
+    hamburger: process.env.HAMBURGER ? process.env.HAMBURGER.split(" ") : null,
   };
   const fallbackValues = {
     linkColor: "#ff2a9d",
