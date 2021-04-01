@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/tests/fixtures/public
+/tests/fixtures/public/podcast.xml
 
 # next.js
 /.next/
