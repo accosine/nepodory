@@ -3,13 +3,14 @@
   "workspaces": [
     "packages/*"
   ],
-  "name": "nexthotness",
+  "name": "next-podcast",
   "version": "0.0.1",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
     "test": "jest",
+    "test:ci": "jest --maxWorkers=2",
     "export": "next build && next export"
   },
   "dependencies": {
