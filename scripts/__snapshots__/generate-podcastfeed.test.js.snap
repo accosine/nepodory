@@ -2,10 +2,10 @@
 
 exports[`generate-podcastfeed generated a piece of xml for the episode in the podcast feed 1`] = `
 "<item>
-      <pubDate>Sun, 21 Feb 2021 19:15:00 GMT</pubDate>
+      <pubDate>Fri, 01 Jan 2021 20:15:00 GMT</pubDate>
       <title>I am a title</title>
       <description>I am some content</description>
-      <content:encoded><![CDATA[<p>I am some content - Just some marketing bla bla</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>I am some content - <p>The young are not afraid of telling the truth.</p></p>]]></content:encoded>
       <guid>0000000000000000000</guid>
       <enclosure url=\\"https://example.com\\" type=\\"audio/mpeg\\" length=\\"0000000000\\"/>
       <itunes:duration xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">00:13:37</itunes:duration>
@@ -48,7 +48,7 @@ exports[`generate-podcastfeed generated a podcast xml feed 1`] = `
     <itunes:explicit>yes</itunes:explicit>
     <ttl>60</ttl>
     <item>
-      <pubDate>Sun, 21 Feb 2021 19:15:00 GMT</pubDate>
+      <pubDate>Fri, 01 Jan 2021 20:15:00 GMT</pubDate>
       <title>I am a title</title>
       <description>I am some content</description>
       <content:encoded><![CDATA[<p>I am some content - undefined</p>]]></content:encoded>

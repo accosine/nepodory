@@ -7,7 +7,7 @@ import {
 describe("generate-podcastfeed", () => {
   const singleEpisodeSetting = {
     bitlength: "0000000000",
-    date: "Sun, 21 Feb 2021 19:15:00 GMT",
+    date: "2021-01-01T20:15",
     duration: "00:13:37",
     episode: "https://example.com",
     guid: "0000000000000000000",
@@ -35,8 +35,8 @@ describe("generate-podcastfeed", () => {
     category: "category",
     subcategory1: "subcategory1",
     subcategory2: "subcategory2",
-    year: new Date("June 12, 1929 01:00:00").getFullYear(),
-    buildDate: new Date("June 12, 1929 01:00:00").toUTCString(),
+    year: new Date("June 12, 1929 00:00:00 GMT").getFullYear(),
+    buildDate: new Date("June 12, 1929 00:00:00 GMT").toUTCString(),
     episodesWithConfig: [singleEpisodeSetting].map(addConfig),
   };
 
@@ -45,13 +45,12 @@ describe("generate-podcastfeed", () => {
       "<p>The young are not afraid of telling the truth.</p>";
     const folderEpisodes = "mdx/episodes";
     const publisher = "ACME";
-    const date = new Date("Wed, 12 Jun 1929 00:00:00 GMT").toUTCString();
+    const date = new Date("Wed, 12 Jun 1929 00:00:00 GMT");
     process.env.FOLDER_EPISODES = folderEpisodes;
     process.env.PODCAST_MARKETING_LINKMARKUP = feedMarketingLinkMarkup;
     process.env.PODCAST_PUBLISHER = publisher;
-    const config = addConfig({
-      date: "Wed, 12 Jun 1929 00:00:00 GMT",
-    });
+    const configDate = "1929-06-12T00:00";
+    const config = addConfig({ date: configDate });
 
     expect(config).toEqual({
       configuration: {
@@ -63,7 +62,7 @@ describe("generate-podcastfeed", () => {
   });
 
   it("generated a piece of xml for the episode in the podcast feed", () => {
-    const singleEpisode = generateEpisodeItem(singleEpisodeSetting);
+    const singleEpisode = generateEpisodeItem(addConfig(singleEpisodeSetting));
     expect(singleEpisode).toMatchSnapshot();
   });
 
