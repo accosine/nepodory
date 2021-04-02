@@ -45,11 +45,13 @@ describe("generate-podcastfeed", () => {
       "<p>The young are not afraid of telling the truth.</p>";
     const folderEpisodes = "mdx/episodes";
     const publisher = "ACME";
-    const date = "Wed, 12 Jun 1929 00:00:00 GMT";
+    const date = new Date("Wed, 12 Jun 1929 00:00:00 GMT").toUTCString();
     process.env.FOLDER_EPISODES = folderEpisodes;
     process.env.PODCAST_MARKETING_LINKMARKUP = feedMarketingLinkMarkup;
     process.env.PODCAST_PUBLISHER = publisher;
-    const config = addConfig({ date: "1929-06-12T01:00" });
+    const config = addConfig({
+      date: "Wed, 12 Jun 1929 00:00:00 GMT",
+    });
 
     expect(config).toEqual({
       configuration: {
