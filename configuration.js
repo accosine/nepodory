@@ -10,6 +10,9 @@ const generateConfiguration = (() => {
     domain: process.env.DOMAIN,
     timeLocale: process.env.TIME_LOCALE,
     timeFormat: process.env.TIME_FORMAT,
+    publicDirectory: process.env.FOLDER_PUBLIC
+      ? join(process.cwd(), process.env.FOLDER_PUBLIC)
+      : null,
     episodesDirectory: process.env.FOLDER_EPISODES
       ? join(process.cwd(), process.env.FOLDER_EPISODES)
       : null,
@@ -37,8 +40,9 @@ const generateConfiguration = (() => {
     protocol: "http",
     domain: "localhost",
     format: "YYYY-MM-DD",
-    episodesDirectory: join(process.cwd(), "mdx/episodes"),
-    pagesDirectory: join(process.cwd(), "mdx/pages"),
+    publicDirectory: join(process.cwd(), "tests/fixtures/public"),
+    episodesDirectory: join(process.cwd(), "tests/fixtures/episodes"),
+    pagesDirectory: join(process.cwd(), "tests/fixtures/pages"),
     coverImage: "",
     coverVideo: "",
     backgroundColor: "#000",

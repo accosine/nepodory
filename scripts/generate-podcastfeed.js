@@ -1,6 +1,6 @@
 const fs = require("fs");
 const getAll = require("../automat/getAll");
-const { episodesDirectory } = require("../configuration");
+const { episodesDirectory, publicDirectory } = require("../configuration");
 
 export const generateEpisodeItem = (ep) => {
   const {
@@ -19,7 +19,7 @@ export const generateEpisodeItem = (ep) => {
   const nbspContent = content.replace(/(\r\n|\n|\r)/gm, "");
 
   return `<item>
-      <pubDate>${date}</pubDate>
+      <pubDate>${date.toUTCString()}</pubDate>
       <title>${title}</title>
       <description>${nbspContent}</description>
       <content:encoded><![CDATA[<p>${nbspContent} - ${feedMarketingLinkMarkup}</p>]]></content:encoded>
@@ -86,9 +86,11 @@ export const generatePodcastFeed = ({
 export const addConfig = (episode) => {
   const feedMarketingLinkMarkup = process.env.PODCAST_MARKETING_LINKMARKUP;
   const publisher = process.env.PODCAST_PUBLISHER;
+  const date = new Date(episode.date + ":00.000Z");
+
   return {
     ...episode,
-    date: new Date(episode.date).toUTCString(),
+    date,
     configuration: {
       feedMarketingLinkMarkup,
       publisher,
@@ -142,5 +144,5 @@ export const addConfig = (episode) => {
 
   const sitemap = generatePodcastFeed(settings);
 
-  fs.writeFileSync("public/podcast.xml", sitemap);
+  fs.writeFileSync(`${publicDirectory}/podcast.xml`, sitemap);
 })();
