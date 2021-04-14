@@ -51,7 +51,7 @@ exports[`generate-podcastfeed generated a podcast xml feed 1`] = `
       <pubDate>Fri, 01 Jan 2021 20:15:00 GMT</pubDate>
       <title>I am a title</title>
       <description>I am some content</description>
-      <content:encoded><![CDATA[<p>I am some content - undefined</p>]]></content:encoded>
+      <content:encoded><![CDATA[<p>I am some content - </p>]]></content:encoded>
       <guid>0000000000000000000</guid>
       <enclosure url=\\"https://example.com\\" type=\\"audio/mpeg\\" length=\\"0000000000\\"/>
       <itunes:duration xmlns:itunes=\\"http://www.itunes.com/dtds/podcast-1.0.dtd\\">00:13:37</itunes:duration>
