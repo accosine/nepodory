@@ -12,22 +12,34 @@ const generateEpisodeItem = (ep) => {
     duration,
     bitlength,
     subtitle,
-    configuration: { feedMarketingLinkMarkup, publisher },
+    configuration: { feedMarketingLinkMarkup = "", publisher },
   } = ep;
 
-  // Remove all line breaking spaces for inlining within xml feed
-  const nbspContent = content.replace(/(\r\n|\n|\r)/gm, "");
+  // Remove all line breaking spaces and transfrom ampersands for inlining within xml feed
+
+  const cleanedTitle = title
+    .replace(/(\r\n|\n|\r)/gm, "")
+    .replace("&", "&amp;");
+  const cleanedContent = content
+    .replace(/(\r\n|\n|\r)/gm, "")
+    .replace("&", "&amp;");
+  const cleanedSubtitle = subtitle
+    .replace(/(\r\n|\n|\r)/gm, "")
+    .replace("&", "&amp;");
+  const cleanedFeedMarketingLinkMarkup = feedMarketingLinkMarkup
+    .replace(/(\r\n|\n|\r)/gm, "")
+    .replace("&", "&amp;");
 
   return `<item>
       <pubDate>${date.toUTCString()}</pubDate>
-      <title>${title}</title>
-      <description>${nbspContent}</description>
-      <content:encoded><![CDATA[<p>${nbspContent} - ${feedMarketingLinkMarkup}</p>]]></content:encoded>
+      <title>${cleanedTitle}</title>
+      <description>${cleanedContent}</description>
+      <content:encoded><![CDATA[<p>${cleanedContent} - ${cleanedFeedMarketingLinkMarkup}</p>]]></content:encoded>
       <guid>${guid}</guid>
       <enclosure url="${episode}" type="audio/mpeg" length="${bitlength}"/>
       <itunes:duration xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">${duration}</itunes:duration>
       <itunes:author xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">${publisher}</itunes:author>
-      <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">${subtitle}</itunes:subtitle>
+      <itunes:subtitle xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">${cleanedSubtitle}</itunes:subtitle>
     </item>
     `;
 };
