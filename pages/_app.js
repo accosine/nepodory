@@ -1,10 +1,6 @@
 import Head from "next/head";
 
 function PodcastApp({ Component, pageProps }) {
-  const { statusCode } = pageProps;
-  if (statusCode === "404") {
-    return null;
-  }
   const {
     slug,
     configuration: { protocol, domain, storyTitle, crawling },
