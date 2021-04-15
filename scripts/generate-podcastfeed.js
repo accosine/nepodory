@@ -131,11 +131,6 @@ const addConfig = (episode) => {
     episodesDirectory
   );
 
-  const episodeDates = episodes
-    .map((episode) => episode.date)
-    .sort((date1, date2) => (date1 > date2 ? "-1" : "1"));
-  const [mostRecentDate, ...rest] = episodeDates;
-
   const settings = {
     protocol: process.env.PROTOCOL,
     domain: process.env.DOMAIN,
@@ -150,7 +145,7 @@ const addConfig = (episode) => {
     subcategory1: process.env.PODCAST_SUBCATEGORY1,
     subcategory2: process.env.PODCAST_SUBCATEGORY2,
     year: new Date().getFullYear(),
-    buildDate: new Date(mostRecentDate).toUTCString(),
+    buildDate: new Date().toUTCString(),
     episodesWithConfig: episodes.map(addConfig),
   };
 
