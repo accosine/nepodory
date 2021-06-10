@@ -6,14 +6,14 @@ Create your NExt.js PODcast stORY - with nepodory 🗼
 
 To install nepodory with create-next-app and this repository as an example:
 
-    npx create-next-app -e https://github.com/accosine/next-podcast
+    npx create-next-app -e https://github.com/accosine/nepodory
 
 ## Install theme
 
 The next.js podcast story themes are called "leitmotif", install a ready-made theme or use it as template for creating your own:
 You will need a theme compatible with nepodory which is aliased to the package name "leitmotif":
 
-    npm i leitmotif@npm:@accosine/nepodory-leitmotif@1.0.0-beta.4
+    npm i leitmotif@npm:@accosine/nepodory-leitmotif@1.0.0-beta.7
 
 ## Add environment variables
 
